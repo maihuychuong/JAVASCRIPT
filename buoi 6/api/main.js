@@ -25,55 +25,11 @@ const image = document.getElementById('image');
 
 // C1: Sử dụng build-in fetch trong js
 // C1.1: Sử dụng promise
-// btn.addEventListener('click', () => {
-//     fetch("https://dog.ceo/api/breeds/image/random")
-//         .then(response => {
-//             console.log(response);
-//             return response.json();
-//         })
-//         .then(data => {
-//             console.log(data);
-//             // {message: "https://images.dog.ceo/breeds/terrier-irish/n02093991_1003.jpg", status: "success"}
-//             image.src = data.message;
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// });
-
-// C1.2: Sử dụng async await
-// btn.addEventListener('click', async () => {
-//     try {
-//         let response = await fetch("https://dog.ceo/api/breeds/image/random");
-//         console.log(response);
-
-//         let data = await response.json();
-//         console.log(data);
-
-//         image.src = data.message;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
-
-// C2: Sử dụng thư viện axios
-// btn.addEventListener('click', () => {
-//     axios.get("https://dog.ceo/api/breeds/image/random")
-//         .then(function (response) {
-//             console.log(response);
-//             image.src = response.data.message;
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         });
-// });
-
-btn.addEventListener('click', async () => {
-  try {
-    let response = await axios.get('https://dog.ceo/api/breeds/image/random');
+btn.addEventListener('click', () => {
+  fetch('https://dog.ceo/api/breeds/image/random').then((response) => {
     console.log(response);
-    image.src = response.data.message;
-  } catch (error) {
-    console.log(error);
-  }
+    return response.json();
+  });
 });
+
+// C1.2: Sử dụng Asyns await
